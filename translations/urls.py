@@ -13,6 +13,6 @@ urlpatterns = [
     path("", TranslationListView.as_view(), name="list"),
     path("<str:abbreviation>/", TranslationDetailView.as_view(), name="detail"),
     # Authenticated
-    path("create/", TranslationsCreateView.as_view(), name="create"),
+    path("create/new/", TranslationsCreateView.as_view(), name="create"),
     path("detail/<str:slug>/", TranslationRetrieveView.as_view(), name="update"),
 ]
