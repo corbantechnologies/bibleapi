@@ -68,6 +68,7 @@ class BaseUserSerializer(serializers.ModelSerializer):
 class AdminSerializer(BaseUserSerializer):
     def create(self, validated_data):
         user = self.create_user(validated_data, "is_admin")
+        user.is_staff = True
         user.save()
         return user
 
