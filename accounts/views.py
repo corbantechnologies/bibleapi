@@ -47,7 +47,7 @@ class TokenView(APIView):
                         "is_active": user.is_active,
                         "is_staff": user.is_staff,
                         "is_verified": user.is_verified,
-                        "is_admin": user.is_guest,
+                        "is_admin": user.is_admin,
                         "token": token.key,
                     }
                     return Response(user_details, status=status.HTTP_200_OK)
