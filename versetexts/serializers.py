@@ -6,18 +6,18 @@ from versetexts.models import VerseText
 
 class VerseTextSerializer(serializers.ModelSerializer):
     verse = serializers.SlugRelatedField(
-        queryset=Verse.objects.all(), slug_field="reference"
+        queryset=Verse.objects.all(), slug_field="reference", write_only=True
     )
     verse_detail = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = VerseText
         fields = (
-            "verse",
-            "text",
             "verse_name",
+            "text",
             "reference",
             "slug",
+            "verse",
             "verse_detail",
         )
 
