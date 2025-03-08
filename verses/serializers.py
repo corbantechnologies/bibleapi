@@ -2,13 +2,14 @@ from rest_framework import serializers
 
 from chapters.models import Chapter
 from verses.models import Verse
+from versetexts.serializers import VerseTextSerializer
 
 
 class VerseSerializer(serializers.ModelSerializer):
     chapter = serializers.SlugRelatedField(
         queryset=Chapter.objects.all(), slug_field="reference", write_only=True
     )
-    chapter_detail = serializers.SerializerMethodField(read_only=True)
+    texts = VerseTextSerializer(many=True, read_only=True)
 
     class Meta:
         model = Verse
@@ -20,14 +21,5 @@ class VerseSerializer(serializers.ModelSerializer):
             "slug",
             "created_at",
             "updated_at",
-            "chapter_detail",
+            "texts",
         )
-
-    def get_chapter_detail(self, obj):
-        obj = obj.chapter
-        return {
-            "name": obj.name,
-            "number": obj.number,
-            "reference": obj.reference,
-            "slug": obj.slug,
-        }

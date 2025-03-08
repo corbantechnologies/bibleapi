@@ -8,7 +8,6 @@ class VerseTextSerializer(serializers.ModelSerializer):
     verse = serializers.SlugRelatedField(
         queryset=Verse.objects.all(), slug_field="reference", write_only=True
     )
-    verse_detail = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = VerseText
@@ -18,14 +17,4 @@ class VerseTextSerializer(serializers.ModelSerializer):
             "reference",
             "slug",
             "verse",
-            "verse_detail",
         )
-
-    def get_verse_detail(self, obj):
-        obj = obj.verse
-        return {
-            "chapter": obj.chapter.name,
-            "verse_number": obj.verse_number,
-            "reference": obj.reference,
-            "slug": obj.slug,
-        }
