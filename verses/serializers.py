@@ -14,9 +14,12 @@ class VerseSerializer(serializers.ModelSerializer):
         model = Verse
         fields = (
             "chapter",
+            "name",
             "verse_number",
             "reference",
             "slug",
+            "created_at",
+            "updated_at",
             "chapter_detail",
         )
 
