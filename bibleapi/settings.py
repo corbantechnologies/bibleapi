@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     "accounts",
     "verification",
     "translations",
+    "books",
 ]
 
 MIDDLEWARE = [
