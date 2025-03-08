@@ -2,6 +2,7 @@ from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 
 from translations.models import Translation
+from books.serializers import BookSerializer
 
 
 class TranslationSerializer(serializers.ModelSerializer):
@@ -11,6 +12,7 @@ class TranslationSerializer(serializers.ModelSerializer):
     abbreviation = serializers.CharField(
         validators=[UniqueValidator(queryset=Translation.objects.all())]
     )
+    books = BookSerializer(many=True, read_only=True)
 
     class Meta:
         model = Translation
@@ -21,4 +23,5 @@ class TranslationSerializer(serializers.ModelSerializer):
             "updated_at",
             "slug",
             "reference",
+            "books",
         )

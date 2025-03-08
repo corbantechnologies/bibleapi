@@ -15,7 +15,7 @@ class Book(UniversalIdModel, TimeStampedModel, ReferenceSlugModel):
     class Meta:
         verbose_name = "Book"
         verbose_name_plural = "Books"
-        ordering = ["name"]
+        ordering = ["translation", "created_at"]
         unique_together = ("translation", "name")
 
     def __str__(self):
