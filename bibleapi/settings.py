@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     "books",
     "chapters",
     "verses",
+    "versetexts",
 ]
 
 MIDDLEWARE = [

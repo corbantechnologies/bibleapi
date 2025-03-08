@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from versetexts.models import VerseText
+
+admin.site.register(VerseText)
