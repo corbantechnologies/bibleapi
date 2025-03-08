@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "translations",
     "books",
     "chapters",
+    "verses",
 ]
 
 MIDDLEWARE = [
