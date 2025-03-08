@@ -13,8 +13,8 @@ class Verse(UniversalIdModel, TimeStampedModel, ReferenceSlugModel):
     class Meta:
         verbose_name = "Verse"
         verbose_name_plural = "Verses"
-        ordering = ["number"]
-        unique_together = ("chapter", "number")
+        ordering = ["verse_number"]
+        unique_together = ("chapter", "verse_number")
 
     def __str__(self):
         return f"{self.chapter.book.name} {self.chapter.number}:{self.verse_number}"
