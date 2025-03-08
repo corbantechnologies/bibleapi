@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     "verification",
     "translations",
     "books",
+    "chapters",
 ]
 
 MIDDLEWARE = [
