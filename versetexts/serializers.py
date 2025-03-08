@@ -15,6 +15,7 @@ class VerseTextSerializer(serializers.ModelSerializer):
         fields = (
             "verse",
             "text",
+            "verse_name",
             "reference",
             "slug",
             "verse_detail",
