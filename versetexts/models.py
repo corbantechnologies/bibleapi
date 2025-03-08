@@ -12,7 +12,7 @@ class VerseText(UniversalIdModel, TimeStampedModel, ReferenceSlugModel):
     class Meta:
         verbose_name = "Verse Text"
         verbose_name_plural = "Verse Texts"
-        unique_together = ("verse", "text")
+        unique_together = ("verse",)
 
     def save(self, *args, **kwargs):
         if not self.verse_name:

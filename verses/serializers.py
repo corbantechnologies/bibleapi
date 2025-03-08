@@ -6,7 +6,7 @@ from verses.models import Verse
 
 class VerseSerializer(serializers.ModelSerializer):
     chapter = serializers.SlugRelatedField(
-        queryset=Chapter.objects.all(), slug_field="reference"
+        queryset=Chapter.objects.all(), slug_field="reference", write_only=True
     )
     chapter_detail = serializers.SerializerMethodField(read_only=True)
 
