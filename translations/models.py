@@ -6,6 +6,7 @@ from accounts.abstracts import UniversalIdModel, TimeStampedModel, ReferenceSlug
 class Translation(UniversalIdModel, TimeStampedModel, ReferenceSlugModel):
     name = models.CharField(max_length=255, unique=True)
     abbreviation = models.CharField(max_length=255, unique=True)
+    description = models.TextField(blank=True, null=True)
 
     class Meta:
         verbose_name = "Translation"
